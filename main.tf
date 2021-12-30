@@ -49,6 +49,7 @@ resource "aws_security_group" "sg_my_server" {
 }
 
 data "template_file" "user_data" {
+  
   template = file("${abspath(path.module)}/userdata.yaml")
 }
 provider "aws" {
