@@ -51,7 +51,7 @@ resource "aws_security_group" "sg_my_server" {
 data "template_file" "user_data" {
 
   template = file("${abspath(path.module)}/userdata.yaml")
-  
+
 }
 provider "aws" {
   alias  = "east"
@@ -109,17 +109,17 @@ resource "aws_instance" "my_server" {
 
   }*/
 
-  provisioner "file" {
-    content     = "Mars"
-    destination = "/home/ec2-user/barsoon.txt"
+  # provisioner "file" {
+  #   content     = "Mars"
+  #   destination = "/home/ec2-user/barsoon.txt"
 
-    connection {
-      type        = "ssh"
-      user        = "ec2-user"
-      host        = self.public_ip
-      private_key = file("/root/.ssh/id_ed25519")
-    }
-  }
+  #   connection {
+  #     type        = "ssh"
+  #     user        = "ec2-user"
+  #     host        = self.public_ip
+  #     private_key = file("/root/.ssh/id_ed25519")
+  #   }
+  # }
 
   /*connection {
     type        = "ssh"
