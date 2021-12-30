@@ -49,8 +49,7 @@ resource "aws_security_group" "sg_my_server" {
 }
 
 data "template_file" "user_data" {
-  template = file("/root/terraform-associate/110_modules/terraform-aws-apache-example/userdata.yaml")
-
+  template = file("${abspath(path.module)}/userdata.yaml")
 }
 provider "aws" {
   alias  = "east"
